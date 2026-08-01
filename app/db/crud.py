@@ -44,7 +44,7 @@ def delete_category(db: Session, category_id: int):
 def get_books(db: Session, category_id=None):
     query = db.query(Book)
 
-    if category_id:
+    if category_id is not None:
         query = query.filter(Book.category_id == category_id)
 
     return query.all()
